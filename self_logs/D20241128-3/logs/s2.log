@@ -1,0 +1,1275 @@
+Calling target program-options parser
+[01:29:46.821] [bmv2] [D] [thread 12079] Set default default entry for table 'MyIngress.mac_exact': NoAction - 
+[01:29:46.822] [bmv2] [D] [thread 12079] Set default default entry for table 'tbl_qos216': qos216 - 
+[01:29:46.822] [bmv2] [D] [thread 12079] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+[01:29:46.822] [bmv2] [D] [thread 12079] Set default default entry for table 'tbl_qos223': qos223 - 
+Adding interface s2-eth1 as port 1
+[01:29:46.823] [bmv2] [D] [thread 12079] Adding interface s2-eth1 as port 1
+Adding interface s2-eth2 as port 2
+[01:29:46.838] [bmv2] [D] [thread 12079] Adding interface s2-eth2 as port 2
+Adding interface s2-eth3 as port 3
+[01:29:46.841] [bmv2] [D] [thread 12079] Adding interface s2-eth3 as port 3
+Adding interface s2-eth4 as port 4
+[01:29:46.842] [bmv2] [D] [thread 12079] Adding interface s2-eth4 as port 4
+Server listening on 0.0.0.0:50052
+[01:29:46.858] [bmv2] [I] [thread 12079] Starting Thrift server on port 9091
+[01:29:46.864] [bmv2] [I] [thread 12079] Thrift server was started
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Processing packet received on port 3
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Parser 'parser': start
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Extracting header 'ethernet'
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:46.866] [bmv2] [T] [thread 12089] [0.0] [cxt 0] Bytes parsed: 14
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Parser 'parser': end
+[01:29:46.866] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Pipeline 'ingress': start
+[01:29:46.866] [bmv2] [T] [thread 12089] [0.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:46.866] [bmv2] [T] [thread 12089] [0.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000016
+
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] Action NoAction
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] Action NoAction
+[01:29:46.867] [bmv2] [T] [thread 12089] [0.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Pipeline 'ingress': end
+[01:29:46.867] [bmv2] [D] [thread 12089] [0.0] [cxt 0] Egress port is 0
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Processing packet received on port 4
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Parser 'parser': start
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Extracting header 'ethernet'
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] Bytes parsed: 14
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Parser 'parser': end
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Pipeline 'ingress': start
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000016
+
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] Action NoAction
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:46.867] [bmv2] [T] [thread 12089] [1.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:46.871] [bmv2] [D] [thread 12090] [0.0] [cxt 0] Pipeline 'egress': start
+[01:29:46.871] [bmv2] [D] [thread 12090] [0.0] [cxt 0] Pipeline 'egress': end
+[01:29:46.871] [bmv2] [D] [thread 12090] [0.0] [cxt 0] Deparser 'deparser': start
+[01:29:46.871] [bmv2] [T] [thread 12090] [0.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:46.871] [bmv2] [D] [thread 12090] [0.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:46.871] [bmv2] [D] [thread 12090] [0.0] [cxt 0] Deparser 'deparser': end
+[01:29:46.871] [bmv2] [D] [thread 12094] [0.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[01:29:46.867] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:46.871] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:46.872] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.872] [bmv2] [T] [thread 12089] [1.0] [cxt 0] Action NoAction
+[01:29:46.872] [bmv2] [T] [thread 12089] [1.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:46.872] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Pipeline 'ingress': end
+[01:29:46.872] [bmv2] [D] [thread 12089] [1.0] [cxt 0] Egress port is 0
+[01:29:46.872] [bmv2] [D] [thread 12090] [1.0] [cxt 0] Pipeline 'egress': start
+[01:29:46.872] [bmv2] [D] [thread 12090] [1.0] [cxt 0] Pipeline 'egress': end
+[01:29:46.872] [bmv2] [D] [thread 12090] [1.0] [cxt 0] Deparser 'deparser': start
+[01:29:46.872] [bmv2] [T] [thread 12090] [1.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:46.872] [bmv2] [D] [thread 12090] [1.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:46.872] [bmv2] [D] [thread 12090] [1.0] [cxt 0] Deparser 'deparser': end
+[01:29:46.872] [bmv2] [D] [thread 12094] [1.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Processing packet received on port 4
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Parser 'parser': start
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Extracting header 'ethernet'
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] Bytes parsed: 14
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Parser 'parser': end
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Pipeline 'ingress': start
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:46.872] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] Action NoAction
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:46.872] [bmv2] [T] [thread 12089] [2.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:46.873] [bmv2] [T] [thread 12089] [2.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:46.873] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:46.873] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:46.873] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Action entry is NoAction - 
+[01:29:46.873] [bmv2] [T] [thread 12089] [2.0] [cxt 0] Action NoAction
+[01:29:46.873] [bmv2] [T] [thread 12089] [2.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:46.873] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Pipeline 'ingress': end
+[01:29:46.873] [bmv2] [D] [thread 12089] [2.0] [cxt 0] Egress port is 0
+[01:29:46.873] [bmv2] [D] [thread 12090] [2.0] [cxt 0] Pipeline 'egress': start
+[01:29:46.873] [bmv2] [D] [thread 12090] [2.0] [cxt 0] Pipeline 'egress': end
+[01:29:46.873] [bmv2] [D] [thread 12090] [2.0] [cxt 0] Deparser 'deparser': start
+[01:29:46.873] [bmv2] [T] [thread 12090] [2.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:46.873] [bmv2] [D] [thread 12090] [2.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:46.873] [bmv2] [D] [thread 12090] [2.0] [cxt 0] Deparser 'deparser': end
+[01:29:46.873] [bmv2] [D] [thread 12094] [2.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Processing packet received on port 4
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Parser 'parser': start
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Extracting header 'ethernet'
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:47.151] [bmv2] [T] [thread 12089] [3.0] [cxt 0] Bytes parsed: 14
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Parser 'parser': end
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Pipeline 'ingress': start
+[01:29:47.151] [bmv2] [T] [thread 12089] [3.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:47.151] [bmv2] [T] [thread 12089] [3.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000016
+
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:47.151] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Action entry is NoAction - 
+[01:29:47.151] [bmv2] [T] [thread 12089] [3.0] [cxt 0] Action NoAction
+[01:29:47.151] [bmv2] [T] [thread 12089] [3.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:47.152] [bmv2] [T] [thread 12089] [3.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:47.152] [bmv2] [T] [thread 12089] [3.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:47.152] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:47.152] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:47.152] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Action entry is NoAction - 
+[01:29:47.152] [bmv2] [T] [thread 12089] [3.0] [cxt 0] Action NoAction
+[01:29:47.152] [bmv2] [T] [thread 12089] [3.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:47.152] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Pipeline 'ingress': end
+[01:29:47.152] [bmv2] [D] [thread 12089] [3.0] [cxt 0] Egress port is 0
+[01:29:47.152] [bmv2] [D] [thread 12090] [3.0] [cxt 0] Pipeline 'egress': start
+[01:29:47.152] [bmv2] [D] [thread 12090] [3.0] [cxt 0] Pipeline 'egress': end
+[01:29:47.152] [bmv2] [D] [thread 12090] [3.0] [cxt 0] Deparser 'deparser': start
+[01:29:47.152] [bmv2] [T] [thread 12090] [3.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:47.152] [bmv2] [D] [thread 12090] [3.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:47.152] [bmv2] [D] [thread 12090] [3.0] [cxt 0] Deparser 'deparser': end
+[01:29:47.156] [bmv2] [D] [thread 12094] [3.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Processing packet received on port 3
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Parser 'parser': start
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Extracting header 'ethernet'
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] Bytes parsed: 14
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Parser 'parser': end
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Pipeline 'ingress': start
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000016
+
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Action entry is NoAction - 
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] Action NoAction
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Action entry is NoAction - 
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] Action NoAction
+[01:29:47.507] [bmv2] [T] [thread 12089] [4.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Pipeline 'ingress': end
+[01:29:47.507] [bmv2] [D] [thread 12089] [4.0] [cxt 0] Egress port is 0
+[01:29:47.508] [bmv2] [D] [thread 12090] [4.0] [cxt 0] Pipeline 'egress': start
+[01:29:47.508] [bmv2] [D] [thread 12090] [4.0] [cxt 0] Pipeline 'egress': end
+[01:29:47.508] [bmv2] [D] [thread 12090] [4.0] [cxt 0] Deparser 'deparser': start
+[01:29:47.508] [bmv2] [T] [thread 12090] [4.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:47.508] [bmv2] [D] [thread 12090] [4.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:47.508] [bmv2] [D] [thread 12090] [4.0] [cxt 0] Deparser 'deparser': end
+[01:29:47.508] [bmv2] [D] [thread 12094] [4.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[01:29:49.424] [bmv2] [W] [thread 12142] [P4Runtime] p4::tmp::P4DeviceConfig is deprecated
+[01:29:49.435] [bmv2] [D] [thread 12142] Set default default entry for table 'MyIngress.mac_exact': NoAction - 
+[01:29:49.435] [bmv2] [D] [thread 12142] Set default default entry for table 'tbl_qos216': qos216 - 
+[01:29:49.435] [bmv2] [D] [thread 12142] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+[01:29:49.436] [bmv2] [D] [thread 12142] Set default default entry for table 'tbl_qos223': qos223 - 
+[01:29:49.438] [bmv2] [D] [thread 12142] simple_switch target has been notified of a config swap
+[01:29:49.445] [bmv2] [D] [thread 12143] Entry 0 added to table 'MyIngress.ipv4_lpm'
+[01:29:49.446] [bmv2] [D] [thread 12143] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000202/32
+Action entry: MyIngress.ipv4_forward - 80000000202,2,
+
+[01:29:49.451] [bmv2] [D] [thread 12142] Entry 1 added to table 'MyIngress.ipv4_lpm'
+[01:29:49.451] [bmv2] [D] [thread 12142] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000216/32
+Action entry: MyIngress.ipv4_forward - 80000000222,1,
+
+[01:29:49.458] [bmv2] [D] [thread 12143] Entry 2 added to table 'MyIngress.ipv4_lpm'
+[01:29:49.459] [bmv2] [D] [thread 12143] Dumping entry 2
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000100/24
+Action entry: MyIngress.ipv4_forward - 80000000100,3,
+
+[01:29:49.466] [bmv2] [D] [thread 12142] Entry 3 added to table 'MyIngress.ipv4_lpm'
+[01:29:49.466] [bmv2] [D] [thread 12142] Dumping entry 3
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000300/24
+Action entry: MyIngress.ipv4_forward - 80000000300,4,
+
+[01:29:49.773] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Processing packet received on port 2
+[01:29:49.773] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Parser 'parser': start
+[01:29:49.773] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:49.773] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Extracting header 'ethernet'
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] Bytes parsed: 14
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Parser 'parser': end
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Pipeline 'ingress': start
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Action entry is NoAction - 
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] Action NoAction
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Action entry is NoAction - 
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] Action NoAction
+[01:29:49.774] [bmv2] [T] [thread 12089] [5.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:49.774] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Pipeline 'ingress': end
+[01:29:49.775] [bmv2] [D] [thread 12089] [5.0] [cxt 0] Egress port is 0
+[01:29:49.779] [bmv2] [D] [thread 12090] [5.0] [cxt 0] Pipeline 'egress': start
+[01:29:49.779] [bmv2] [D] [thread 12090] [5.0] [cxt 0] Pipeline 'egress': end
+[01:29:49.779] [bmv2] [D] [thread 12090] [5.0] [cxt 0] Deparser 'deparser': start
+[01:29:49.779] [bmv2] [T] [thread 12090] [5.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:49.779] [bmv2] [D] [thread 12090] [5.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:49.779] [bmv2] [D] [thread 12090] [5.0] [cxt 0] Deparser 'deparser': end
+[01:29:49.779] [bmv2] [D] [thread 12094] [5.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:50.034] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Processing packet received on port 4
+[01:29:50.034] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Parser 'parser': start
+[01:29:50.034] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:50.034] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Extracting header 'ethernet'
+[01:29:50.035] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:50.035] [bmv2] [T] [thread 12089] [6.0] [cxt 0] Bytes parsed: 14
+[01:29:50.035] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Parser 'parser': end
+[01:29:50.035] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Pipeline 'ingress': start
+[01:29:50.035] [bmv2] [T] [thread 12089] [6.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:50.035] [bmv2] [T] [thread 12089] [6.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:50.039] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] Action NoAction
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] Action NoAction
+[01:29:50.040] [bmv2] [T] [thread 12089] [6.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Pipeline 'ingress': end
+[01:29:50.040] [bmv2] [D] [thread 12089] [6.0] [cxt 0] Egress port is 0
+[01:29:50.041] [bmv2] [D] [thread 12090] [6.0] [cxt 0] Pipeline 'egress': start
+[01:29:50.041] [bmv2] [D] [thread 12090] [6.0] [cxt 0] Pipeline 'egress': end
+[01:29:50.041] [bmv2] [D] [thread 12090] [6.0] [cxt 0] Deparser 'deparser': start
+[01:29:50.041] [bmv2] [T] [thread 12090] [6.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:50.041] [bmv2] [D] [thread 12090] [6.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:50.041] [bmv2] [D] [thread 12090] [6.0] [cxt 0] Deparser 'deparser': end
+[01:29:50.041] [bmv2] [D] [thread 12094] [6.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:50.289] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Processing packet received on port 1
+[01:29:50.289] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Parser 'parser': start
+[01:29:50.289] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:50.289] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Extracting header 'ethernet'
+[01:29:50.290] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:50.290] [bmv2] [T] [thread 12089] [7.0] [cxt 0] Bytes parsed: 14
+[01:29:50.290] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Parser 'parser': end
+[01:29:50.290] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Pipeline 'ingress': start
+[01:29:50.290] [bmv2] [T] [thread 12089] [7.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:50.290] [bmv2] [T] [thread 12089] [7.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:50.291] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:50.291] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:50.291] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.291] [bmv2] [T] [thread 12089] [7.0] [cxt 0] Action NoAction
+[01:29:50.291] [bmv2] [T] [thread 12089] [7.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:50.291] [bmv2] [T] [thread 12089] [7.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:50.291] [bmv2] [T] [thread 12089] [7.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:50.291] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:50.292] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:50.292] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.292] [bmv2] [T] [thread 12089] [7.0] [cxt 0] Action NoAction
+[01:29:50.292] [bmv2] [T] [thread 12089] [7.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:50.294] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Pipeline 'ingress': end
+[01:29:50.294] [bmv2] [D] [thread 12089] [7.0] [cxt 0] Egress port is 0
+[01:29:50.294] [bmv2] [D] [thread 12090] [7.0] [cxt 0] Pipeline 'egress': start
+[01:29:50.294] [bmv2] [D] [thread 12090] [7.0] [cxt 0] Pipeline 'egress': end
+[01:29:50.294] [bmv2] [D] [thread 12090] [7.0] [cxt 0] Deparser 'deparser': start
+[01:29:50.295] [bmv2] [T] [thread 12090] [7.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:50.295] [bmv2] [D] [thread 12090] [7.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:50.295] [bmv2] [D] [thread 12090] [7.0] [cxt 0] Deparser 'deparser': end
+[01:29:50.295] [bmv2] [D] [thread 12094] [7.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Processing packet received on port 3
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Parser 'parser': start
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Extracting header 'ethernet'
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:50.391] [bmv2] [T] [thread 12089] [8.0] [cxt 0] Bytes parsed: 14
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Parser 'parser': end
+[01:29:50.391] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Pipeline 'ingress': start
+[01:29:50.391] [bmv2] [T] [thread 12089] [8.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:50.391] [bmv2] [T] [thread 12089] [8.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] Action NoAction
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] Action NoAction
+[01:29:50.392] [bmv2] [T] [thread 12089] [8.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Pipeline 'ingress': end
+[01:29:50.392] [bmv2] [D] [thread 12089] [8.0] [cxt 0] Egress port is 0
+[01:29:50.393] [bmv2] [D] [thread 12090] [8.0] [cxt 0] Pipeline 'egress': start
+[01:29:50.393] [bmv2] [D] [thread 12090] [8.0] [cxt 0] Pipeline 'egress': end
+[01:29:50.393] [bmv2] [D] [thread 12090] [8.0] [cxt 0] Deparser 'deparser': start
+[01:29:50.393] [bmv2] [T] [thread 12090] [8.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:50.393] [bmv2] [D] [thread 12090] [8.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:50.393] [bmv2] [D] [thread 12090] [8.0] [cxt 0] Deparser 'deparser': end
+[01:29:50.393] [bmv2] [D] [thread 12094] [8.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:50.897] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Processing packet received on port 3
+[01:29:50.897] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Parser 'parser': start
+[01:29:50.897] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Extracting header 'ethernet'
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] Bytes parsed: 14
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Parser 'parser': end
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Pipeline 'ingress': start
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] Action NoAction
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:50.898] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Action entry is NoAction - 
+[01:29:50.898] [bmv2] [T] [thread 12089] [9.0] [cxt 0] Action NoAction
+[01:29:50.899] [bmv2] [T] [thread 12089] [9.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:50.899] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Pipeline 'ingress': end
+[01:29:50.899] [bmv2] [D] [thread 12089] [9.0] [cxt 0] Egress port is 0
+[01:29:50.900] [bmv2] [D] [thread 12090] [9.0] [cxt 0] Pipeline 'egress': start
+[01:29:50.900] [bmv2] [D] [thread 12090] [9.0] [cxt 0] Pipeline 'egress': end
+[01:29:50.900] [bmv2] [D] [thread 12090] [9.0] [cxt 0] Deparser 'deparser': start
+[01:29:50.900] [bmv2] [T] [thread 12090] [9.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:50.900] [bmv2] [D] [thread 12090] [9.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:50.900] [bmv2] [D] [thread 12090] [9.0] [cxt 0] Deparser 'deparser': end
+[01:29:50.900] [bmv2] [D] [thread 12094] [9.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:51.058] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Processing packet received on port 4
+[01:29:51.058] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Parser 'parser': start
+[01:29:51.058] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:51.058] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Extracting header 'ethernet'
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:51.059] [bmv2] [T] [thread 12089] [10.0] [cxt 0] Bytes parsed: 14
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Parser 'parser': end
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Pipeline 'ingress': start
+[01:29:51.059] [bmv2] [T] [thread 12089] [10.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:51.059] [bmv2] [T] [thread 12089] [10.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:51.059] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Action entry is NoAction - 
+[01:29:51.059] [bmv2] [T] [thread 12089] [10.0] [cxt 0] Action NoAction
+[01:29:51.059] [bmv2] [T] [thread 12089] [10.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:51.060] [bmv2] [T] [thread 12089] [10.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:51.060] [bmv2] [T] [thread 12089] [10.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:51.060] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:51.060] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:51.062] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Action entry is NoAction - 
+[01:29:51.062] [bmv2] [T] [thread 12089] [10.0] [cxt 0] Action NoAction
+[01:29:51.062] [bmv2] [T] [thread 12089] [10.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:51.062] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Pipeline 'ingress': end
+[01:29:51.062] [bmv2] [D] [thread 12089] [10.0] [cxt 0] Egress port is 0
+[01:29:51.063] [bmv2] [D] [thread 12090] [10.0] [cxt 0] Pipeline 'egress': start
+[01:29:51.063] [bmv2] [D] [thread 12090] [10.0] [cxt 0] Pipeline 'egress': end
+[01:29:51.063] [bmv2] [D] [thread 12090] [10.0] [cxt 0] Deparser 'deparser': start
+[01:29:51.063] [bmv2] [T] [thread 12090] [10.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:51.063] [bmv2] [D] [thread 12090] [10.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:51.063] [bmv2] [D] [thread 12090] [10.0] [cxt 0] Deparser 'deparser': end
+[01:29:51.063] [bmv2] [D] [thread 12094] [10.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Processing packet received on port 2
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Parser 'parser': start
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Extracting header 'ethernet'
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:56.941] [bmv2] [T] [thread 12089] [11.0] [cxt 0] Bytes parsed: 14
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Parser 'parser': end
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Pipeline 'ingress': start
+[01:29:56.941] [bmv2] [T] [thread 12089] [11.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:56.941] [bmv2] [T] [thread 12089] [11.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:56.941] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Action entry is NoAction - 
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] Action NoAction
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Action entry is NoAction - 
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] Action NoAction
+[01:29:56.942] [bmv2] [T] [thread 12089] [11.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Pipeline 'ingress': end
+[01:29:56.942] [bmv2] [D] [thread 12089] [11.0] [cxt 0] Egress port is 0
+[01:29:56.942] [bmv2] [D] [thread 12090] [11.0] [cxt 0] Pipeline 'egress': start
+[01:29:56.942] [bmv2] [D] [thread 12090] [11.0] [cxt 0] Pipeline 'egress': end
+[01:29:56.942] [bmv2] [D] [thread 12090] [11.0] [cxt 0] Deparser 'deparser': start
+[01:29:56.942] [bmv2] [T] [thread 12090] [11.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:56.942] [bmv2] [D] [thread 12090] [11.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:56.942] [bmv2] [D] [thread 12090] [11.0] [cxt 0] Deparser 'deparser': end
+[01:29:56.943] [bmv2] [D] [thread 12094] [11.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Processing packet received on port 4
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Parser 'parser': start
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Extracting header 'ethernet'
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:57.203] [bmv2] [T] [thread 12089] [12.0] [cxt 0] Bytes parsed: 14
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Parser 'parser': end
+[01:29:57.203] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Pipeline 'ingress': start
+[01:29:57.203] [bmv2] [T] [thread 12089] [12.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:57.203] [bmv2] [T] [thread 12089] [12.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:57.204] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:57.204] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:57.204] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Action entry is NoAction - 
+[01:29:57.204] [bmv2] [T] [thread 12089] [12.0] [cxt 0] Action NoAction
+[01:29:57.204] [bmv2] [T] [thread 12089] [12.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:57.204] [bmv2] [T] [thread 12089] [12.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:57.204] [bmv2] [T] [thread 12089] [12.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:57.204] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:57.206] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:57.206] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Action entry is NoAction - 
+[01:29:57.206] [bmv2] [T] [thread 12089] [12.0] [cxt 0] Action NoAction
+[01:29:57.206] [bmv2] [T] [thread 12089] [12.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:57.206] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Pipeline 'ingress': end
+[01:29:57.206] [bmv2] [D] [thread 12089] [12.0] [cxt 0] Egress port is 0
+[01:29:57.207] [bmv2] [D] [thread 12090] [12.0] [cxt 0] Pipeline 'egress': start
+[01:29:57.207] [bmv2] [D] [thread 12090] [12.0] [cxt 0] Pipeline 'egress': end
+[01:29:57.208] [bmv2] [D] [thread 12090] [12.0] [cxt 0] Deparser 'deparser': start
+[01:29:57.208] [bmv2] [T] [thread 12090] [12.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:57.208] [bmv2] [D] [thread 12090] [12.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:57.208] [bmv2] [D] [thread 12090] [12.0] [cxt 0] Deparser 'deparser': end
+[01:29:57.208] [bmv2] [D] [thread 12094] [12.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:58.070] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Processing packet received on port 3
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Parser 'parser': start
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Extracting header 'ethernet'
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:58.071] [bmv2] [T] [thread 12089] [13.0] [cxt 0] Bytes parsed: 14
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Parser 'parser': end
+[01:29:58.071] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Pipeline 'ingress': start
+[01:29:58.071] [bmv2] [T] [thread 12089] [13.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:58.071] [bmv2] [T] [thread 12089] [13.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:58.072] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:58.072] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:58.072] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Action entry is NoAction - 
+[01:29:58.072] [bmv2] [T] [thread 12089] [13.0] [cxt 0] Action NoAction
+[01:29:58.073] [bmv2] [T] [thread 12089] [13.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:58.073] [bmv2] [T] [thread 12089] [13.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:58.073] [bmv2] [T] [thread 12089] [13.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:58.073] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:58.073] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:58.073] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Action entry is NoAction - 
+[01:29:58.073] [bmv2] [T] [thread 12089] [13.0] [cxt 0] Action NoAction
+[01:29:58.074] [bmv2] [T] [thread 12089] [13.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:58.074] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Pipeline 'ingress': end
+[01:29:58.074] [bmv2] [D] [thread 12089] [13.0] [cxt 0] Egress port is 0
+[01:29:58.076] [bmv2] [D] [thread 12090] [13.0] [cxt 0] Pipeline 'egress': start
+[01:29:58.076] [bmv2] [D] [thread 12090] [13.0] [cxt 0] Pipeline 'egress': end
+[01:29:58.076] [bmv2] [D] [thread 12090] [13.0] [cxt 0] Deparser 'deparser': start
+[01:29:58.077] [bmv2] [T] [thread 12090] [13.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:58.077] [bmv2] [D] [thread 12090] [13.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:58.077] [bmv2] [D] [thread 12090] [13.0] [cxt 0] Deparser 'deparser': end
+[01:29:58.077] [bmv2] [D] [thread 12094] [13.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:58.990] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Processing packet received on port 1
+[01:29:58.990] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Parser 'parser': start
+[01:29:58.990] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:58.991] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Extracting header 'ethernet'
+[01:29:58.991] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:58.991] [bmv2] [T] [thread 12089] [14.0] [cxt 0] Bytes parsed: 14
+[01:29:58.991] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Parser 'parser': end
+[01:29:58.991] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Pipeline 'ingress': start
+[01:29:58.991] [bmv2] [T] [thread 12089] [14.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:58.992] [bmv2] [T] [thread 12089] [14.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:58.992] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:58.992] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:58.992] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Action entry is NoAction - 
+[01:29:58.992] [bmv2] [T] [thread 12089] [14.0] [cxt 0] Action NoAction
+[01:29:58.992] [bmv2] [T] [thread 12089] [14.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:58.992] [bmv2] [T] [thread 12089] [14.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:58.992] [bmv2] [T] [thread 12089] [14.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:58.992] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:58.993] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:58.993] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Action entry is NoAction - 
+[01:29:58.993] [bmv2] [T] [thread 12089] [14.0] [cxt 0] Action NoAction
+[01:29:58.993] [bmv2] [T] [thread 12089] [14.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:58.993] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Pipeline 'ingress': end
+[01:29:58.993] [bmv2] [D] [thread 12089] [14.0] [cxt 0] Egress port is 0
+[01:29:58.993] [bmv2] [D] [thread 12090] [14.0] [cxt 0] Pipeline 'egress': start
+[01:29:58.993] [bmv2] [D] [thread 12090] [14.0] [cxt 0] Pipeline 'egress': end
+[01:29:58.993] [bmv2] [D] [thread 12090] [14.0] [cxt 0] Deparser 'deparser': start
+[01:29:58.993] [bmv2] [T] [thread 12090] [14.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:58.993] [bmv2] [D] [thread 12090] [14.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:58.993] [bmv2] [D] [thread 12090] [14.0] [cxt 0] Deparser 'deparser': end
+[01:29:58.993] [bmv2] [D] [thread 12094] [14.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:59.757] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Processing packet received on port 4
+[01:29:59.758] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Parser 'parser': start
+[01:29:59.758] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:59.758] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Extracting header 'ethernet'
+[01:29:59.758] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:59.758] [bmv2] [T] [thread 12089] [15.0] [cxt 0] Bytes parsed: 14
+[01:29:59.758] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Parser 'parser': end
+[01:29:59.759] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Pipeline 'ingress': start
+[01:29:59.759] [bmv2] [T] [thread 12089] [15.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:59.759] [bmv2] [T] [thread 12089] [15.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:59.759] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:59.759] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:59.760] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Action entry is NoAction - 
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] Action NoAction
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:59.764] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:59.764] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:59.764] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Action entry is NoAction - 
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] Action NoAction
+[01:29:59.764] [bmv2] [T] [thread 12089] [15.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:59.764] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Pipeline 'ingress': end
+[01:29:59.764] [bmv2] [D] [thread 12089] [15.0] [cxt 0] Egress port is 0
+[01:29:59.764] [bmv2] [D] [thread 12090] [15.0] [cxt 0] Pipeline 'egress': start
+[01:29:59.764] [bmv2] [D] [thread 12090] [15.0] [cxt 0] Pipeline 'egress': end
+[01:29:59.764] [bmv2] [D] [thread 12090] [15.0] [cxt 0] Deparser 'deparser': start
+[01:29:59.764] [bmv2] [T] [thread 12090] [15.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:59.764] [bmv2] [D] [thread 12090] [15.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:59.764] [bmv2] [D] [thread 12090] [15.0] [cxt 0] Deparser 'deparser': end
+[01:29:59.765] [bmv2] [D] [thread 12094] [15.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Processing packet received on port 3
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Parser 'parser': start
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Extracting header 'ethernet'
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Parser state 'start': key is 86dd
+[01:29:59.863] [bmv2] [T] [thread 12089] [16.0] [cxt 0] Bytes parsed: 14
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Parser 'parser': end
+[01:29:59.863] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Pipeline 'ingress': start
+[01:29:59.863] [bmv2] [T] [thread 12089] [16.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:29:59.864] [bmv2] [T] [thread 12089] [16.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Action entry is NoAction - 
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] Action NoAction
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Action entry is NoAction - 
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] Action NoAction
+[01:29:59.865] [bmv2] [T] [thread 12089] [16.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Pipeline 'ingress': end
+[01:29:59.865] [bmv2] [D] [thread 12089] [16.0] [cxt 0] Egress port is 0
+[01:29:59.865] [bmv2] [D] [thread 12090] [16.0] [cxt 0] Pipeline 'egress': start
+[01:29:59.866] [bmv2] [D] [thread 12090] [16.0] [cxt 0] Pipeline 'egress': end
+[01:29:59.866] [bmv2] [D] [thread 12090] [16.0] [cxt 0] Deparser 'deparser': start
+[01:29:59.866] [bmv2] [T] [thread 12090] [16.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:29:59.866] [bmv2] [D] [thread 12090] [16.0] [cxt 0] Deparsing header 'ethernet'
+[01:29:59.866] [bmv2] [D] [thread 12090] [16.0] [cxt 0] Deparser 'deparser': end
+[01:29:59.866] [bmv2] [D] [thread 12094] [16.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:11.535] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Processing packet received on port 2
+[01:30:11.535] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Parser 'parser': start
+[01:30:11.535] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:11.535] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Extracting header 'ethernet'
+[01:30:11.536] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:11.537] [bmv2] [T] [thread 12089] [17.0] [cxt 0] Bytes parsed: 14
+[01:30:11.537] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Parser 'parser': end
+[01:30:11.537] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Pipeline 'ingress': start
+[01:30:11.537] [bmv2] [T] [thread 12089] [17.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:11.537] [bmv2] [T] [thread 12089] [17.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:11.537] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Action entry is NoAction - 
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] Action NoAction
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Action entry is NoAction - 
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] Action NoAction
+[01:30:11.538] [bmv2] [T] [thread 12089] [17.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Pipeline 'ingress': end
+[01:30:11.538] [bmv2] [D] [thread 12089] [17.0] [cxt 0] Egress port is 0
+[01:30:11.539] [bmv2] [D] [thread 12090] [17.0] [cxt 0] Pipeline 'egress': start
+[01:30:11.539] [bmv2] [D] [thread 12090] [17.0] [cxt 0] Pipeline 'egress': end
+[01:30:11.539] [bmv2] [D] [thread 12090] [17.0] [cxt 0] Deparser 'deparser': start
+[01:30:11.539] [bmv2] [T] [thread 12090] [17.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:11.539] [bmv2] [D] [thread 12090] [17.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:11.539] [bmv2] [D] [thread 12090] [17.0] [cxt 0] Deparser 'deparser': end
+[01:30:11.539] [bmv2] [D] [thread 12094] [17.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:12.304] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Processing packet received on port 4
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Parser 'parser': start
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Extracting header 'ethernet'
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:12.306] [bmv2] [T] [thread 12089] [18.0] [cxt 0] Bytes parsed: 14
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Parser 'parser': end
+[01:30:12.306] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Pipeline 'ingress': start
+[01:30:12.307] [bmv2] [T] [thread 12089] [18.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:12.307] [bmv2] [T] [thread 12089] [18.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:12.307] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:12.307] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:12.307] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Action entry is NoAction - 
+[01:30:12.307] [bmv2] [T] [thread 12089] [18.0] [cxt 0] Action NoAction
+[01:30:12.307] [bmv2] [T] [thread 12089] [18.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:12.308] [bmv2] [T] [thread 12089] [18.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:12.308] [bmv2] [T] [thread 12089] [18.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:12.314] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:12.314] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:12.314] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Action entry is NoAction - 
+[01:30:12.314] [bmv2] [T] [thread 12089] [18.0] [cxt 0] Action NoAction
+[01:30:12.314] [bmv2] [T] [thread 12089] [18.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:12.314] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Pipeline 'ingress': end
+[01:30:12.314] [bmv2] [D] [thread 12089] [18.0] [cxt 0] Egress port is 0
+[01:30:12.314] [bmv2] [D] [thread 12090] [18.0] [cxt 0] Pipeline 'egress': start
+[01:30:12.314] [bmv2] [D] [thread 12090] [18.0] [cxt 0] Pipeline 'egress': end
+[01:30:12.314] [bmv2] [D] [thread 12090] [18.0] [cxt 0] Deparser 'deparser': start
+[01:30:12.314] [bmv2] [T] [thread 12090] [18.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:12.315] [bmv2] [D] [thread 12090] [18.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:12.315] [bmv2] [D] [thread 12090] [18.0] [cxt 0] Deparser 'deparser': end
+[01:30:12.315] [bmv2] [D] [thread 12094] [18.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:13.177] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Processing packet received on port 3
+[01:30:13.177] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Parser 'parser': start
+[01:30:13.177] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:13.177] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Extracting header 'ethernet'
+[01:30:13.177] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:13.177] [bmv2] [T] [thread 12089] [19.0] [cxt 0] Bytes parsed: 14
+[01:30:13.178] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Parser 'parser': end
+[01:30:13.178] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Pipeline 'ingress': start
+[01:30:13.178] [bmv2] [T] [thread 12089] [19.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:13.178] [bmv2] [T] [thread 12089] [19.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Action entry is NoAction - 
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] Action NoAction
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Action entry is NoAction - 
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] Action NoAction
+[01:30:13.179] [bmv2] [T] [thread 12089] [19.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Pipeline 'ingress': end
+[01:30:13.179] [bmv2] [D] [thread 12089] [19.0] [cxt 0] Egress port is 0
+[01:30:13.180] [bmv2] [D] [thread 12090] [19.0] [cxt 0] Pipeline 'egress': start
+[01:30:13.180] [bmv2] [D] [thread 12090] [19.0] [cxt 0] Pipeline 'egress': end
+[01:30:13.180] [bmv2] [D] [thread 12090] [19.0] [cxt 0] Deparser 'deparser': start
+[01:30:13.180] [bmv2] [T] [thread 12090] [19.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:13.180] [bmv2] [D] [thread 12090] [19.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:13.180] [bmv2] [D] [thread 12090] [19.0] [cxt 0] Deparser 'deparser': end
+[01:30:13.180] [bmv2] [D] [thread 12094] [19.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:18.191] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Processing packet received on port 1
+[01:30:18.192] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Parser 'parser': start
+[01:30:18.192] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:18.192] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Extracting header 'ethernet'
+[01:30:18.192] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:18.192] [bmv2] [T] [thread 12089] [20.0] [cxt 0] Bytes parsed: 14
+[01:30:18.200] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Parser 'parser': end
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Pipeline 'ingress': start
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] Action NoAction
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:18.201] [bmv2] [T] [thread 12089] [20.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:18.201] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:18.202] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.202] [bmv2] [T] [thread 12089] [20.0] [cxt 0] Action NoAction
+[01:30:18.202] [bmv2] [T] [thread 12089] [20.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:18.202] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Pipeline 'ingress': end
+[01:30:18.202] [bmv2] [D] [thread 12089] [20.0] [cxt 0] Egress port is 0
+[01:30:18.209] [bmv2] [D] [thread 12090] [20.0] [cxt 0] Pipeline 'egress': start
+[01:30:18.209] [bmv2] [D] [thread 12090] [20.0] [cxt 0] Pipeline 'egress': end
+[01:30:18.209] [bmv2] [D] [thread 12090] [20.0] [cxt 0] Deparser 'deparser': start
+[01:30:18.209] [bmv2] [T] [thread 12090] [20.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:18.209] [bmv2] [D] [thread 12090] [20.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:18.209] [bmv2] [D] [thread 12090] [20.0] [cxt 0] Deparser 'deparser': end
+[01:30:18.209] [bmv2] [D] [thread 12094] [20.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:18.209] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Processing packet received on port 4
+[01:30:18.209] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Parser 'parser': start
+[01:30:18.209] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:18.209] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Extracting header 'ethernet'
+[01:30:18.209] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:18.209] [bmv2] [T] [thread 12089] [21.0] [cxt 0] Bytes parsed: 14
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Parser 'parser': end
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Pipeline 'ingress': start
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] Action NoAction
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] Action NoAction
+[01:30:18.210] [bmv2] [T] [thread 12089] [21.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Pipeline 'ingress': end
+[01:30:18.210] [bmv2] [D] [thread 12089] [21.0] [cxt 0] Egress port is 0
+[01:30:18.212] [bmv2] [D] [thread 12090] [21.0] [cxt 0] Pipeline 'egress': start
+[01:30:18.212] [bmv2] [D] [thread 12090] [21.0] [cxt 0] Pipeline 'egress': end
+[01:30:18.212] [bmv2] [D] [thread 12090] [21.0] [cxt 0] Deparser 'deparser': start
+[01:30:18.212] [bmv2] [T] [thread 12090] [21.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:18.212] [bmv2] [D] [thread 12090] [21.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:18.212] [bmv2] [D] [thread 12090] [21.0] [cxt 0] Deparser 'deparser': end
+[01:30:18.212] [bmv2] [D] [thread 12094] [21.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:18.298] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Processing packet received on port 3
+[01:30:18.298] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Parser 'parser': start
+[01:30:18.298] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Extracting header 'ethernet'
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] Bytes parsed: 14
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Parser 'parser': end
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Pipeline 'ingress': start
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:18.299] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] Action NoAction
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:18.299] [bmv2] [T] [thread 12089] [22.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:18.300] [bmv2] [T] [thread 12089] [22.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:18.300] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:18.301] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:18.301] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Action entry is NoAction - 
+[01:30:18.301] [bmv2] [T] [thread 12089] [22.0] [cxt 0] Action NoAction
+[01:30:18.301] [bmv2] [T] [thread 12089] [22.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:18.301] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Pipeline 'ingress': end
+[01:30:18.301] [bmv2] [D] [thread 12089] [22.0] [cxt 0] Egress port is 0
+[01:30:18.301] [bmv2] [D] [thread 12090] [22.0] [cxt 0] Pipeline 'egress': start
+[01:30:18.301] [bmv2] [D] [thread 12090] [22.0] [cxt 0] Pipeline 'egress': end
+[01:30:18.301] [bmv2] [D] [thread 12090] [22.0] [cxt 0] Deparser 'deparser': start
+[01:30:18.301] [bmv2] [T] [thread 12090] [22.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:18.301] [bmv2] [D] [thread 12090] [22.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:18.301] [bmv2] [D] [thread 12090] [22.0] [cxt 0] Deparser 'deparser': end
+[01:30:18.301] [bmv2] [D] [thread 12094] [22.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:42.766] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Processing packet received on port 2
+[01:30:42.767] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Parser 'parser': start
+[01:30:42.767] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:42.767] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Extracting header 'ethernet'
+[01:30:42.767] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:42.768] [bmv2] [T] [thread 12089] [23.0] [cxt 0] Bytes parsed: 14
+[01:30:42.768] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Parser 'parser': end
+[01:30:42.768] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Pipeline 'ingress': start
+[01:30:42.768] [bmv2] [T] [thread 12089] [23.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:42.768] [bmv2] [T] [thread 12089] [23.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] Action NoAction
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] Action NoAction
+[01:30:42.779] [bmv2] [T] [thread 12089] [23.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:42.779] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Pipeline 'ingress': end
+[01:30:42.780] [bmv2] [D] [thread 12089] [23.0] [cxt 0] Egress port is 0
+[01:30:42.781] [bmv2] [D] [thread 12090] [23.0] [cxt 0] Pipeline 'egress': start
+[01:30:42.781] [bmv2] [D] [thread 12090] [23.0] [cxt 0] Pipeline 'egress': end
+[01:30:42.781] [bmv2] [D] [thread 12090] [23.0] [cxt 0] Deparser 'deparser': start
+[01:30:42.781] [bmv2] [T] [thread 12090] [23.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:42.781] [bmv2] [D] [thread 12090] [23.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:42.781] [bmv2] [D] [thread 12090] [23.0] [cxt 0] Deparser 'deparser': end
+[01:30:42.782] [bmv2] [D] [thread 12094] [23.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Processing packet received on port 4
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Parser 'parser': start
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Extracting header 'ethernet'
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:42.782] [bmv2] [T] [thread 12089] [24.0] [cxt 0] Bytes parsed: 14
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Parser 'parser': end
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Pipeline 'ingress': start
+[01:30:42.782] [bmv2] [T] [thread 12089] [24.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:42.782] [bmv2] [T] [thread 12089] [24.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:42.782] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] Action NoAction
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] Action NoAction
+[01:30:42.783] [bmv2] [T] [thread 12089] [24.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Pipeline 'ingress': end
+[01:30:42.783] [bmv2] [D] [thread 12089] [24.0] [cxt 0] Egress port is 0
+[01:30:42.785] [bmv2] [D] [thread 12090] [24.0] [cxt 0] Pipeline 'egress': start
+[01:30:42.785] [bmv2] [D] [thread 12090] [24.0] [cxt 0] Pipeline 'egress': end
+[01:30:42.785] [bmv2] [D] [thread 12090] [24.0] [cxt 0] Deparser 'deparser': start
+[01:30:42.785] [bmv2] [T] [thread 12090] [24.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:42.785] [bmv2] [D] [thread 12090] [24.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:42.785] [bmv2] [D] [thread 12090] [24.0] [cxt 0] Deparser 'deparser': end
+[01:30:42.785] [bmv2] [D] [thread 12094] [24.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:42.867] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Processing packet received on port 3
+[01:30:42.868] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Parser 'parser': start
+[01:30:42.868] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:42.868] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Extracting header 'ethernet'
+[01:30:42.869] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:42.869] [bmv2] [T] [thread 12089] [25.0] [cxt 0] Bytes parsed: 14
+[01:30:42.869] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Parser 'parser': end
+[01:30:42.869] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Pipeline 'ingress': start
+[01:30:42.869] [bmv2] [T] [thread 12089] [25.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:42.869] [bmv2] [T] [thread 12089] [25.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:42.870] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:42.870] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:42.870] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.870] [bmv2] [T] [thread 12089] [25.0] [cxt 0] Action NoAction
+[01:30:42.870] [bmv2] [T] [thread 12089] [25.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:42.870] [bmv2] [T] [thread 12089] [25.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:42.870] [bmv2] [T] [thread 12089] [25.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:42.871] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:42.871] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:42.871] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Action entry is NoAction - 
+[01:30:42.871] [bmv2] [T] [thread 12089] [25.0] [cxt 0] Action NoAction
+[01:30:42.871] [bmv2] [T] [thread 12089] [25.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:42.871] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Pipeline 'ingress': end
+[01:30:42.871] [bmv2] [D] [thread 12089] [25.0] [cxt 0] Egress port is 0
+[01:30:42.874] [bmv2] [D] [thread 12090] [25.0] [cxt 0] Pipeline 'egress': start
+[01:30:42.875] [bmv2] [D] [thread 12090] [25.0] [cxt 0] Pipeline 'egress': end
+[01:30:42.875] [bmv2] [D] [thread 12090] [25.0] [cxt 0] Deparser 'deparser': start
+[01:30:42.875] [bmv2] [T] [thread 12090] [25.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:42.875] [bmv2] [D] [thread 12090] [25.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:42.875] [bmv2] [D] [thread 12090] [25.0] [cxt 0] Deparser 'deparser': end
+[01:30:42.875] [bmv2] [D] [thread 12094] [25.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:50.968] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Processing packet received on port 4
+[01:30:50.968] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Parser 'parser': start
+[01:30:50.968] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:50.968] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Extracting header 'ethernet'
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] Bytes parsed: 14
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Parser 'parser': end
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Pipeline 'ingress': start
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Action entry is NoAction - 
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] Action NoAction
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Action entry is NoAction - 
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] Action NoAction
+[01:30:50.969] [bmv2] [T] [thread 12089] [26.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Pipeline 'ingress': end
+[01:30:50.969] [bmv2] [D] [thread 12089] [26.0] [cxt 0] Egress port is 0
+[01:30:50.970] [bmv2] [D] [thread 12090] [26.0] [cxt 0] Pipeline 'egress': start
+[01:30:50.970] [bmv2] [D] [thread 12090] [26.0] [cxt 0] Pipeline 'egress': end
+[01:30:50.970] [bmv2] [D] [thread 12090] [26.0] [cxt 0] Deparser 'deparser': start
+[01:30:50.970] [bmv2] [T] [thread 12090] [26.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:50.970] [bmv2] [D] [thread 12090] [26.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:50.970] [bmv2] [D] [thread 12090] [26.0] [cxt 0] Deparser 'deparser': end
+[01:30:50.970] [bmv2] [D] [thread 12094] [26.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:53.007] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Processing packet received on port 1
+[01:30:53.007] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Parser 'parser': start
+[01:30:53.007] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:53.007] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Extracting header 'ethernet'
+[01:30:53.008] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:53.008] [bmv2] [T] [thread 12089] [27.0] [cxt 0] Bytes parsed: 14
+[01:30:53.008] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Parser 'parser': end
+[01:30:53.008] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Pipeline 'ingress': start
+[01:30:53.009] [bmv2] [T] [thread 12089] [27.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:53.010] [bmv2] [T] [thread 12089] [27.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:53.010] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:53.010] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:53.010] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Action entry is NoAction - 
+[01:30:53.011] [bmv2] [T] [thread 12089] [27.0] [cxt 0] Action NoAction
+[01:30:53.011] [bmv2] [T] [thread 12089] [27.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:53.011] [bmv2] [T] [thread 12089] [27.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:53.011] [bmv2] [T] [thread 12089] [27.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:53.011] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:53.011] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:53.011] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Action entry is NoAction - 
+[01:30:53.012] [bmv2] [T] [thread 12089] [27.0] [cxt 0] Action NoAction
+[01:30:53.012] [bmv2] [T] [thread 12089] [27.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:53.012] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Pipeline 'ingress': end
+[01:30:53.012] [bmv2] [D] [thread 12089] [27.0] [cxt 0] Egress port is 0
+[01:30:53.012] [bmv2] [D] [thread 12090] [27.0] [cxt 0] Pipeline 'egress': start
+[01:30:53.012] [bmv2] [D] [thread 12090] [27.0] [cxt 0] Pipeline 'egress': end
+[01:30:53.012] [bmv2] [D] [thread 12090] [27.0] [cxt 0] Deparser 'deparser': start
+[01:30:53.012] [bmv2] [T] [thread 12090] [27.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:53.012] [bmv2] [D] [thread 12090] [27.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:53.013] [bmv2] [D] [thread 12090] [27.0] [cxt 0] Deparser 'deparser': end
+[01:30:53.013] [bmv2] [D] [thread 12094] [27.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:30:55.161] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Processing packet received on port 3
+[01:30:55.161] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Parser 'parser': start
+[01:30:55.161] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:30:55.161] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Extracting header 'ethernet'
+[01:30:55.162] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Parser state 'start': key is 86dd
+[01:30:55.162] [bmv2] [T] [thread 12089] [28.0] [cxt 0] Bytes parsed: 14
+[01:30:55.162] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Parser 'parser': end
+[01:30:55.162] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Pipeline 'ingress': start
+[01:30:55.162] [bmv2] [T] [thread 12089] [28.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:30:55.162] [bmv2] [T] [thread 12089] [28.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:30:55.162] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:30:55.162] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:30:55.163] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Action entry is NoAction - 
+[01:30:55.163] [bmv2] [T] [thread 12089] [28.0] [cxt 0] Action NoAction
+[01:30:55.163] [bmv2] [T] [thread 12089] [28.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:30:55.163] [bmv2] [T] [thread 12089] [28.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:30:55.163] [bmv2] [T] [thread 12089] [28.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:30:55.163] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:30:55.165] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:30:55.165] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Action entry is NoAction - 
+[01:30:55.165] [bmv2] [T] [thread 12089] [28.0] [cxt 0] Action NoAction
+[01:30:55.165] [bmv2] [T] [thread 12089] [28.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:30:55.165] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Pipeline 'ingress': end
+[01:30:55.166] [bmv2] [D] [thread 12089] [28.0] [cxt 0] Egress port is 0
+[01:30:55.168] [bmv2] [D] [thread 12090] [28.0] [cxt 0] Pipeline 'egress': start
+[01:30:55.168] [bmv2] [D] [thread 12090] [28.0] [cxt 0] Pipeline 'egress': end
+[01:30:55.168] [bmv2] [D] [thread 12090] [28.0] [cxt 0] Deparser 'deparser': start
+[01:30:55.168] [bmv2] [T] [thread 12090] [28.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:30:55.168] [bmv2] [D] [thread 12090] [28.0] [cxt 0] Deparsing header 'ethernet'
+[01:30:55.168] [bmv2] [D] [thread 12090] [28.0] [cxt 0] Deparser 'deparser': end
+[01:30:55.168] [bmv2] [D] [thread 12094] [28.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:31:40.116] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Processing packet received on port 4
+[01:31:40.116] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Parser 'parser': start
+[01:31:40.116] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:31:40.116] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Extracting header 'ethernet'
+[01:31:40.116] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Parser state 'start': key is 86dd
+[01:31:40.116] [bmv2] [T] [thread 12089] [29.0] [cxt 0] Bytes parsed: 14
+[01:31:40.117] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Parser 'parser': end
+[01:31:40.117] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Pipeline 'ingress': start
+[01:31:40.117] [bmv2] [T] [thread 12089] [29.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:31:40.117] [bmv2] [T] [thread 12089] [29.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Action entry is NoAction - 
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] Action NoAction
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Action entry is NoAction - 
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] Action NoAction
+[01:31:40.118] [bmv2] [T] [thread 12089] [29.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:31:40.118] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Pipeline 'ingress': end
+[01:31:40.119] [bmv2] [D] [thread 12089] [29.0] [cxt 0] Egress port is 0
+[01:31:40.120] [bmv2] [D] [thread 12090] [29.0] [cxt 0] Pipeline 'egress': start
+[01:31:40.120] [bmv2] [D] [thread 12090] [29.0] [cxt 0] Pipeline 'egress': end
+[01:31:40.120] [bmv2] [D] [thread 12090] [29.0] [cxt 0] Deparser 'deparser': start
+[01:31:40.120] [bmv2] [T] [thread 12090] [29.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:31:40.120] [bmv2] [D] [thread 12090] [29.0] [cxt 0] Deparsing header 'ethernet'
+[01:31:40.120] [bmv2] [D] [thread 12090] [29.0] [cxt 0] Deparser 'deparser': end
+[01:31:40.121] [bmv2] [D] [thread 12094] [29.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Processing packet received on port 3
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Parser 'parser': start
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Extracting header 'ethernet'
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Parser state 'start': key is 86dd
+[01:31:40.217] [bmv2] [T] [thread 12089] [30.0] [cxt 0] Bytes parsed: 14
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Parser 'parser': end
+[01:31:40.217] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Pipeline 'ingress': start
+[01:31:40.217] [bmv2] [T] [thread 12089] [30.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:31:40.217] [bmv2] [T] [thread 12089] [30.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Action entry is NoAction - 
+[01:31:40.218] [bmv2] [T] [thread 12089] [30.0] [cxt 0] Action NoAction
+[01:31:40.218] [bmv2] [T] [thread 12089] [30.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:31:40.218] [bmv2] [T] [thread 12089] [30.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:31:40.218] [bmv2] [T] [thread 12089] [30.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:31:40.218] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Action entry is NoAction - 
+[01:31:40.219] [bmv2] [T] [thread 12089] [30.0] [cxt 0] Action NoAction
+[01:31:40.219] [bmv2] [T] [thread 12089] [30.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:31:40.219] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Pipeline 'ingress': end
+[01:31:40.219] [bmv2] [D] [thread 12089] [30.0] [cxt 0] Egress port is 0
+[01:31:40.219] [bmv2] [D] [thread 12090] [30.0] [cxt 0] Pipeline 'egress': start
+[01:31:40.220] [bmv2] [D] [thread 12090] [30.0] [cxt 0] Pipeline 'egress': end
+[01:31:40.220] [bmv2] [D] [thread 12090] [30.0] [cxt 0] Deparser 'deparser': start
+[01:31:40.220] [bmv2] [T] [thread 12090] [30.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:31:40.220] [bmv2] [D] [thread 12090] [30.0] [cxt 0] Deparsing header 'ethernet'
+[01:31:40.220] [bmv2] [D] [thread 12090] [30.0] [cxt 0] Deparser 'deparser': end
+[01:31:40.220] [bmv2] [D] [thread 12094] [30.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:31:44.209] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Processing packet received on port 2
+[01:31:44.209] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Parser 'parser': start
+[01:31:44.209] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:31:44.209] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Extracting header 'ethernet'
+[01:31:44.210] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Parser state 'start': key is 86dd
+[01:31:44.210] [bmv2] [T] [thread 12089] [31.0] [cxt 0] Bytes parsed: 14
+[01:31:44.210] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Parser 'parser': end
+[01:31:44.211] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Pipeline 'ingress': start
+[01:31:44.211] [bmv2] [T] [thread 12089] [31.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:31:44.211] [bmv2] [T] [thread 12089] [31.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:31:44.223] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:31:44.223] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:31:44.223] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Action entry is NoAction - 
+[01:31:44.223] [bmv2] [T] [thread 12089] [31.0] [cxt 0] Action NoAction
+[01:31:44.223] [bmv2] [T] [thread 12089] [31.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:31:44.223] [bmv2] [T] [thread 12089] [31.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:31:44.223] [bmv2] [T] [thread 12089] [31.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:31:44.224] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:31:44.224] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:31:44.224] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Action entry is NoAction - 
+[01:31:44.224] [bmv2] [T] [thread 12089] [31.0] [cxt 0] Action NoAction
+[01:31:44.224] [bmv2] [T] [thread 12089] [31.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:31:44.224] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Pipeline 'ingress': end
+[01:31:44.224] [bmv2] [D] [thread 12089] [31.0] [cxt 0] Egress port is 0
+[01:31:44.225] [bmv2] [D] [thread 12090] [31.0] [cxt 0] Pipeline 'egress': start
+[01:31:44.226] [bmv2] [D] [thread 12090] [31.0] [cxt 0] Pipeline 'egress': end
+[01:31:44.226] [bmv2] [D] [thread 12090] [31.0] [cxt 0] Deparser 'deparser': start
+[01:31:44.226] [bmv2] [T] [thread 12090] [31.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:31:44.226] [bmv2] [D] [thread 12090] [31.0] [cxt 0] Deparsing header 'ethernet'
+[01:31:44.226] [bmv2] [D] [thread 12090] [31.0] [cxt 0] Deparser 'deparser': end
+[01:31:44.226] [bmv2] [D] [thread 12094] [31.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:31:54.453] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Processing packet received on port 4
+[01:31:54.453] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Parser 'parser': start
+[01:31:54.453] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:31:54.453] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Extracting header 'ethernet'
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Parser state 'start': key is 86dd
+[01:31:54.454] [bmv2] [T] [thread 12089] [32.0] [cxt 0] Bytes parsed: 14
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Parser 'parser': end
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Pipeline 'ingress': start
+[01:31:54.454] [bmv2] [T] [thread 12089] [32.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:31:54.454] [bmv2] [T] [thread 12089] [32.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:31:54.454] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Action entry is NoAction - 
+[01:31:54.454] [bmv2] [T] [thread 12089] [32.0] [cxt 0] Action NoAction
+[01:31:54.454] [bmv2] [T] [thread 12089] [32.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:31:54.455] [bmv2] [T] [thread 12089] [32.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:31:54.455] [bmv2] [T] [thread 12089] [32.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:31:54.455] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:31:54.455] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:31:54.455] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Action entry is NoAction - 
+[01:31:54.455] [bmv2] [T] [thread 12089] [32.0] [cxt 0] Action NoAction
+[01:31:54.455] [bmv2] [T] [thread 12089] [32.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:31:54.455] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Pipeline 'ingress': end
+[01:31:54.455] [bmv2] [D] [thread 12089] [32.0] [cxt 0] Egress port is 0
+[01:31:54.457] [bmv2] [D] [thread 12090] [32.0] [cxt 0] Pipeline 'egress': start
+[01:31:54.458] [bmv2] [D] [thread 12090] [32.0] [cxt 0] Pipeline 'egress': end
+[01:31:54.458] [bmv2] [D] [thread 12090] [32.0] [cxt 0] Deparser 'deparser': start
+[01:31:54.458] [bmv2] [T] [thread 12090] [32.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:31:54.458] [bmv2] [D] [thread 12090] [32.0] [cxt 0] Deparsing header 'ethernet'
+[01:31:54.458] [bmv2] [D] [thread 12090] [32.0] [cxt 0] Deparser 'deparser': end
+[01:31:54.458] [bmv2] [D] [thread 12094] [32.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:32:04.687] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Processing packet received on port 1
+[01:32:04.689] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Parser 'parser': start
+[01:32:04.689] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:32:04.689] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Extracting header 'ethernet'
+[01:32:04.689] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Parser state 'start': key is 86dd
+[01:32:04.690] [bmv2] [T] [thread 12089] [33.0] [cxt 0] Bytes parsed: 14
+[01:32:04.690] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Parser 'parser': end
+[01:32:04.690] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Pipeline 'ingress': start
+[01:32:04.690] [bmv2] [T] [thread 12089] [33.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:32:04.690] [bmv2] [T] [thread 12089] [33.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:32:04.690] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:32:04.691] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:32:04.691] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Action entry is NoAction - 
+[01:32:04.691] [bmv2] [T] [thread 12089] [33.0] [cxt 0] Action NoAction
+[01:32:04.692] [bmv2] [T] [thread 12089] [33.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:32:04.693] [bmv2] [T] [thread 12089] [33.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:32:04.693] [bmv2] [T] [thread 12089] [33.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:32:04.693] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:32:04.693] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:32:04.693] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Action entry is NoAction - 
+[01:32:04.693] [bmv2] [T] [thread 12089] [33.0] [cxt 0] Action NoAction
+[01:32:04.693] [bmv2] [T] [thread 12089] [33.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:32:04.693] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Pipeline 'ingress': end
+[01:32:04.693] [bmv2] [D] [thread 12089] [33.0] [cxt 0] Egress port is 0
+[01:32:04.694] [bmv2] [D] [thread 12090] [33.0] [cxt 0] Pipeline 'egress': start
+[01:32:04.694] [bmv2] [D] [thread 12090] [33.0] [cxt 0] Pipeline 'egress': end
+[01:32:04.694] [bmv2] [D] [thread 12090] [33.0] [cxt 0] Deparser 'deparser': start
+[01:32:04.694] [bmv2] [T] [thread 12090] [33.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:32:04.694] [bmv2] [D] [thread 12090] [33.0] [cxt 0] Deparsing header 'ethernet'
+[01:32:04.694] [bmv2] [D] [thread 12090] [33.0] [cxt 0] Deparser 'deparser': end
+[01:32:04.695] [bmv2] [D] [thread 12094] [33.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[01:32:08.890] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Processing packet received on port 3
+[01:32:08.890] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Parser 'parser': start
+[01:32:08.890] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Parser 'parser' entering state 'start'
+[01:32:08.890] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Extracting header 'ethernet'
+[01:32:08.890] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Parser state 'start': key is 86dd
+[01:32:08.890] [bmv2] [T] [thread 12089] [34.0] [cxt 0] Bytes parsed: 14
+[01:32:08.891] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Parser 'parser': end
+[01:32:08.891] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Pipeline 'ingress': start
+[01:32:08.891] [bmv2] [T] [thread 12089] [34.0] [cxt 0] qos.p4(210) Condition "hdr.vlan.isValid()" (node_2) is false
+[01:32:08.891] [bmv2] [T] [thread 12089] [34.0] [cxt 0] Applying table 'MyIngress.mac_exact'
+[01:32:08.891] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr: 333300000002
+
+[01:32:08.891] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Table 'MyIngress.mac_exact': miss
+[01:32:08.891] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Action entry is NoAction - 
+[01:32:08.891] [bmv2] [T] [thread 12089] [34.0] [cxt 0] Action NoAction
+[01:32:08.891] [bmv2] [T] [thread 12089] [34.0] [cxt 0] qos.p4(214) Condition "hdr.ipv4.isValid()" (node_4) is false
+[01:32:08.892] [bmv2] [T] [thread 12089] [34.0] [cxt 0] qos.p4(215) Condition "hdr.ip_option.value == 500" (node_5) is false
+[01:32:08.892] [bmv2] [T] [thread 12089] [34.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[01:32:08.892] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[01:32:08.892] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[01:32:08.892] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Action entry is NoAction - 
+[01:32:08.892] [bmv2] [T] [thread 12089] [34.0] [cxt 0] Action NoAction
+[01:32:08.892] [bmv2] [T] [thread 12089] [34.0] [cxt 0] qos.p4(222) Condition "hdr.ip_option.option == IPV4_OPTION && hdr.ip_option.value == 500" (node_8) is false
+[01:32:08.892] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Pipeline 'ingress': end
+[01:32:08.892] [bmv2] [D] [thread 12089] [34.0] [cxt 0] Egress port is 0
+[01:32:08.894] [bmv2] [D] [thread 12090] [34.0] [cxt 0] Pipeline 'egress': start
+[01:32:08.894] [bmv2] [D] [thread 12090] [34.0] [cxt 0] Pipeline 'egress': end
+[01:32:08.894] [bmv2] [D] [thread 12090] [34.0] [cxt 0] Deparser 'deparser': start
+[01:32:08.894] [bmv2] [T] [thread 12090] [34.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[01:32:08.895] [bmv2] [D] [thread 12090] [34.0] [cxt 0] Deparsing header 'ethernet'
+[01:32:08.895] [bmv2] [D] [thread 12090] [34.0] [cxt 0] Deparser 'deparser': end
+[01:32:08.895] [bmv2] [D] [thread 12094] [34.0] [cxt 0] Transmitting packet of size 70 out of port 0
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory

@@ -5,7 +5,7 @@
 // IPv4の定義
 const bit<16> TYPE_IPV4 = 0x800;
 // IPオプションの定義
-const bit<5> IPV4_OPTION = 31;
+const bit<5> IPV4_OPTION_LINK_QOS = 31;
 
 /* IP protocols */
 // プロトコルの定義
@@ -23,6 +23,10 @@ const bit<8> IP_PROTOCOLS_EIGRP      =  88;
 const bit<8> IP_PROTOCOLS_OSPF       =  89;
 const bit<8> IP_PROTOCOLS_PIM        = 103;
 const bit<8> IP_PROTOCOLS_VRRP       = 112;
+
+const bit<8> TARGET_DSCP = 10;
+const bit<3> TARGET_PCP = 2;
+const bit<16> TARGET_LINK_QOS = 500;
 
 #define MAX_HOPS 9
 
@@ -42,7 +46,7 @@ header ethernet_t {
 }
 
 header vlan_t {
-    bit<3> priority;
+    bit<3> pcp;
     bit<1> dei;
     bit<12> id;
     bit<16> etherType;
@@ -52,9 +56,9 @@ header vlan_t {
 header ipv4_t {
     bit<4>    version;
     bit<4>    ihl;
-    //bit<8>    tos;
-    bit<6>    diffserv;
-    bit<2>    ecn;
+    bit<8>    diffserv;
+    //bit<6>    diffserv;
+    //bit<2>    ecn;
     bit<16>   totalLen;
     bit<16>   identification;
     bit<3>    flags;
@@ -73,8 +77,8 @@ header ipv4_option_t {
     bit<8> optionLength;
 }
 
-header qos_t {
-    bit<16> qos;
+header link_qos_t{
+    bit<16> link_qos;
 }
 
 struct ingress_metadata_t {
@@ -96,7 +100,7 @@ struct headers {
     vlan_t	 vlan;
     ipv4_t       ipv4;
     ipv4_option_t ipv4_option;
-    qos_t	 qos;
+    link_qos_t link_qos;
 }
 
 error { IPHeaderTooShort }
@@ -144,14 +148,14 @@ parser MyParser(packet_in packet,
 
     state parse_ipv4_option {
 	packet.extract(hdr.ipv4_option);
-	transition select(hdr.ipv4_option.option) {
-	    IPV4_OPTION: parse_qos;
+	transition select(hdr.ipv4_option.option){
+	    IPV4_OPTION_LINK_QOS: parse_link_qos;
 	    default: accept;
 	}
     }
 
-    state parse_qos {
-	packet.extract(hdr.qos);
+    state parse_link_qos {
+	packet.extract(hdr.link_qos);
 	transition accept;
     }
 
@@ -191,73 +195,6 @@ control MyIngress(inout headers hdr,
 
 /* TODO: Implement actions for different traffic classes */
 
-    action default_forwarding(){
-	hdr.ipv4.diffserv = 0;
-    }
-
-    action expedited_forwarding(){
-	hdr.ipv4.diffserv = 46;
-    }
-
-    action voice_admit(){
-	hdr.ipv4.diffserv = 44;
-    }
-
-    action af_11(){
-	hdr.ipv4.diffserv = 10;
-    }
-
-    action af_12(){
-	hdr.ipv4.diffserv = 12;
-    }
-
-    action af_13(){
-	hdr.ipv4.diffserv = 14;
-    }
-
-    action af_21(){
-	hdr.ipv4.diffserv = 18;
-    }
-
-    action af_22(){
-	hdr.ipv4.diffserv = 20;
-    }
-
-    action af_23(){
-	hdr.ipv4.diffserv = 22;
-    }
-
-    action af_31(){
-	hdr.ipv4.diffserv = 26;
-    }
-
-    action af_32(){
-	hdr.ipv4.diffserv = 28;
-    }
-
-    action af_33(){
-	hdr.ipv4.diffserv = 30;
-    }
-
-    action af_41(){
-	hdr.ipv4.diffserv = 34;
-    }
-
-    action af_42(){
-	hdr.ipv4.diffserv = 36;
-    }
-
-    action af_43(){
-	hdr.ipv4.diffserv = 38;
-    }
-
-    table mac_exact {
-	key = { hdr.ethernet.dstAddr: exact; }
-	actions = {
-	    switching;
-	    drop;
-	}
-    }
 
     table ipv4_lpm {
         key = {
@@ -276,21 +213,15 @@ control MyIngress(inout headers hdr,
 /* TODO: set hdr.ipv4.diffserv on the basis of protocol */
     apply {
 
-        if ( !hdr.vlan.isValid() ) {
-            mac_exact.apply();
-        } else {
-            drop();
-        }
-
-        if (hdr.ipv4.isValid()) {
-            if (hdr.ipv4.protocol == IP_PROTOCOLS_UDP){
-		expedited_forwarding();
-	    }
-	    else if (hdr.ipv4.protocol == IP_PROTOCOLS_TCP){
-		voice_admit();
-	    }
+	
+	if ( hdr.ipv4.isValid() ) {
+            if (hdr.link_qos.link_qos == TARGET_LINK_QOS) {
+        	hdr.ipv4.diffserv = (TARGET_DSCP << 2);
+        	hdr.vlan.pcp = TARGET_PCP;
+            }
 	    ipv4_lpm.apply();
-        }
+	}
+
     }
 }
 
@@ -318,7 +249,7 @@ control MyComputeChecksum(inout headers hdr, inout metadata meta) {
               hdr.ipv4.ihl,
               //hdr.ipv4.tos,
 	      hdr.ipv4.diffserv,
-	      hdr.ipv4.ecn,
+	      //hdr.ipv4.ecn,
               hdr.ipv4.totalLen,
               hdr.ipv4.identification,
               hdr.ipv4.flags,
@@ -342,7 +273,7 @@ control MyDeparser(packet_out packet, in headers hdr) {
 	packet.emit(hdr.vlan);
         packet.emit(hdr.ipv4);
 	packet.emit(hdr.ipv4_option);
-	packet.emit(hdr.qos);
+	packet.emit(hdr.link_qos);
     }
 }
 

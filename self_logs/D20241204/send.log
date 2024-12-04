@@ -1,0 +1,39 @@
+.###[ Ethernet ]### 
+  dst       = ff:ff:ff:ff:ff:ff
+  src       = 08:00:00:00:01:01
+  type      = n_802_1Q
+###[ 802.1Q ]### 
+     prio      = 4
+     id        = 0
+     vlan      = 1
+     type      = IPv4
+###[ IP ]### 
+        version   = 4
+        ihl       = 6
+        tos       = 0xdc
+        len       = 32
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = udp
+        chksum    = 0xc0f5
+        src       = 10.0.1.1
+        dst       = 10.0.2.2
+        \options   \
+         |###[ IP Option ]### 
+         |  copy_flag = 1
+         |  optclass  = control
+         |  option    = 31
+         |  length    = 4
+         |  value     = '\x01\\xf4'
+###[ UDP ]### 
+           sport     = 1234
+           dport     = 4321
+           len       = 8
+           chksum    = 0xd328
+
+Sending packet to 10.0.2.2 with link_qos 500, DSCP 55, PCP 4...
+
+Sent 1 packets.
+Packet sent.

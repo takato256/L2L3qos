@@ -28,7 +28,6 @@ const bit<8> TARGET_DSCP = 10;
 const bit<3> TARGET_PCP = 2;
 const bit<16> TARGET_LINK_QOS = 500;
 
-#define MAX_HOPS 9
 
 /*************************************************************************
 *********************** H E A D E R S  ***********************************
@@ -38,6 +37,7 @@ typedef bit<9>  egressSpec_t;
 typedef bit<48> macAddr_t;
 typedef bit<32> ip4Addr_t;
 typedef bit<32> qosOption_t;
+
 
 header ethernet_t {
     macAddr_t dstAddr;
@@ -57,8 +57,6 @@ header ipv4_t {
     bit<4>    version;
     bit<4>    ihl;
     bit<8>    diffserv;
-    //bit<6>    diffserv;
-    //bit<2>    ecn;
     bit<16>   totalLen;
     bit<16>   identification;
     bit<3>    flags;
@@ -81,17 +79,7 @@ header link_qos_t{
     bit<16> link_qos;
 }
 
-struct ingress_metadata_t {
-    bit<16> count;
-}
-
-struct parser_metadata_t {
-    bit<16> remaining;
-}
-
-struct metadata {
-    ingress_metadata_t ingress_metadata;
-    parser_metadata_t parser_metadata;
+struct metadata{
 }
 
 // ヘッダーが持つ型を定義
@@ -182,9 +170,6 @@ control MyIngress(inout headers hdr,
         mark_to_drop(standard_metadata);
     }
 
-    action switching(bit<9> port) {
-	standard_metadata.egress_spec = port;
-    }
 
     action ipv4_forward(macAddr_t dstAddr, egressSpec_t port) {
         standard_metadata.egress_spec = port;
@@ -192,8 +177,6 @@ control MyIngress(inout headers hdr,
         hdr.ethernet.dstAddr = dstAddr;
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
     }
-
-/* TODO: Implement actions for different traffic classes */
 
 
     table ipv4_lpm {
@@ -210,10 +193,7 @@ control MyIngress(inout headers hdr,
     }
 
 
-/* TODO: set hdr.ipv4.diffserv on the basis of protocol */
-    apply {
-
-	
+    apply {	
 	if ( hdr.ipv4.isValid() ) {
             if (hdr.link_qos.link_qos == TARGET_LINK_QOS) {
         	hdr.ipv4.diffserv = (TARGET_DSCP << 2);
@@ -221,7 +201,6 @@ control MyIngress(inout headers hdr,
             }
 	    ipv4_lpm.apply();
 	}
-
     }
 }
 
@@ -242,14 +221,11 @@ control MyEgress(inout headers hdr,
 
 control MyComputeChecksum(inout headers hdr, inout metadata meta) {
     apply {
-        /* TODO: replace tos with diffserv and ecn */
         update_checksum(
             hdr.ipv4.isValid(),
             { hdr.ipv4.version,
               hdr.ipv4.ihl,
-              //hdr.ipv4.tos,
 	      hdr.ipv4.diffserv,
-	      //hdr.ipv4.ecn,
               hdr.ipv4.totalLen,
               hdr.ipv4.identification,
               hdr.ipv4.flags,

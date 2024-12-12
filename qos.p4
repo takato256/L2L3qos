@@ -24,8 +24,8 @@ const bit<8> IP_PROTOCOLS_OSPF       =  89;
 const bit<8> IP_PROTOCOLS_PIM        = 103;
 const bit<8> IP_PROTOCOLS_VRRP       = 112;
 
-const bit<8> TARGET_DSCP = 10;
-const bit<3> TARGET_PCP = 2;
+const bit<8> TARGET_DSCP = 52;
+const bit<3> TARGET_PCP = 7;
 const bit<16> TARGET_LINK_QOS = 500;
 
 

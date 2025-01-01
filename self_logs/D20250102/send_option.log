@@ -1,0 +1,41 @@
+###[ Ethernet ]### 
+  dst       = ff:ff:ff:ff:ff:ff
+  src       = 08:00:00:00:02:02
+  type      = n_802_1Q
+###[ 802.1Q ]### 
+     prio      = 2
+     id        = 0
+     vlan      = 1
+     type      = IPv4
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x28
+        len       = 28
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = udp
+        chksum    = 0x62a5
+        src       = 10.0.2.2
+        dst       = 10.0.2.2
+        \options   \
+###[ UDP ]### 
+           sport     = 1234
+           dport     = 4321
+           len       = 8
+           chksum    = 0xd227
+
+Sending packets to 10.0.2.2 for 10 seconds with DSCP 10, PCP 2...
+Packet sent at 0.01 seconds.
+Packet sent at 1.04 seconds.
+Packet sent at 2.08 seconds.
+Packet sent at 3.11 seconds.
+Packet sent at 4.14 seconds.
+Packet sent at 5.17 seconds.
+Packet sent at 6.21 seconds.
+Packet sent at 7.24 seconds.
+Packet sent at 8.27 seconds.
+Packet sent at 9.30 seconds.
+Packet sending completed.

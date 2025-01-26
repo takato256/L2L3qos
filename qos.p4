@@ -24,9 +24,9 @@ const bit<8> IP_PROTOCOLS_OSPF       =  89;
 const bit<8> IP_PROTOCOLS_PIM        = 103;
 const bit<8> IP_PROTOCOLS_VRRP       = 112;
 
-const bit<8> TARGET_DSCP = 52;
+const bit<8> TARGET_DSCP = 46;
 const bit<3> TARGET_PCP = 7;
-const bit<16> TARGET_LINK_QOS = 500;
+const bit<16> TARGET_LINK_QOS = 494;
 
 
 /*************************************************************************
@@ -80,6 +80,8 @@ header link_qos_t{
 }
 
 struct metadata{
+   bit<3> qos_priority;
+   bit<48> egress_time;
 }
 
 // ヘッダーが持つ型を定義
@@ -192,13 +194,25 @@ control MyIngress(inout headers hdr,
         default_action = NoAction();
     }
 
+    apply {
+	if (hdr.vlan.pcp == 7) {
+	    meta.qos_priority = 3;
+	} else if (hdr.vlan.pcp >= 4) {
+	    meta.qos_priority = 2;
+	} else {
+	    meta.qos_priority = 1;
+	}
 
-    apply {	
 	if ( hdr.ipv4.isValid() ) {
-            if (hdr.link_qos.link_qos == TARGET_LINK_QOS) {
-        	hdr.ipv4.diffserv = (TARGET_DSCP << 2);
-        	hdr.vlan.pcp = TARGET_PCP;
-            }
+	    if (hdr.ipv4_option.isValid()){
+		if (hdr.link_qos.link_qos == TARGET_LINK_QOS) {
+        	    hdr.ipv4.diffserv = (TARGET_DSCP << 2);
+        	    hdr.vlan.pcp = TARGET_PCP;
+                }
+	    } else {
+		hdr.ipv4.diffserv = hdr.ipv4.diffserv;
+		hdr.vlan.pcp = hdr.vlan.pcp;
+	    }
 	    ipv4_lpm.apply();
 	}
     }
@@ -211,7 +225,16 @@ control MyIngress(inout headers hdr,
 control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
-    apply { }
+    apply {
+	if (meta.qos_priority == 3) {
+	    standard_metadata.egress_spec = 0;
+	    meta.egress_time = standard_metadata.egress_global_timestamp;
+	} else if (meta.qos_priority == 2) {
+	    standard_metadata.egress_spec = 1;
+	} else {
+	    standard_metadata.egress_spec = 2;
+	}
+    }
 }
 
 
